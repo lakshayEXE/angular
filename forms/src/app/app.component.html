@@ -1,0 +1,9 @@
+<h1> Basic Form </h1>
+<!-- <form action="" method="post"> -->
+  <input type="text" placeholder ="Enter Your Name" [formControl]="name">
+  <br>
+  <br>
+  <input type="password" placeholder ="Enter Your Password"[formControl]="password" >
+  <br><br>
+  <button (click)="displayValue()">Login </button>
+  <h3> {{name.value}}</h3>

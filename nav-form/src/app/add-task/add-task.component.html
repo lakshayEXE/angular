@@ -1,0 +1,31 @@
+<div class="form-container">
+  <h2>Add Your Task</h2>
+  
+  <!-- Add [formGroup] and (ngSubmit) to the form tag -->
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    
+    <label for="task">Your Task</label>
+    <input type="text" id="task" formControlName="task" placeholder="Enter your task" />
+
+    <label for="name">Your Name</label>
+    <input type="text" id="name" formControlName="name" placeholder="Enter your Name" />
+ 
+    <label for="priority">Priority</label>
+    <select id="priority" formControlName="priority">
+      <option value="">Select priority</option>
+      <option value="High">🔥 High</option>
+      <option value="Medium">⚡ Medium</option>
+      <option value="Low">🧘 Low</option>
+    </select>
+    
+    <label for="description">Description</label>
+ 
+    <textarea id="description" formControlName="description" rows="4" placeholder="Task details..."></textarea>
+    
+    <div class="buttons">
+
+      <button type="submit" [disabled]="!taskForm.valid">Add Task</button>
+      <button type="button" (click)="taskForm.reset()">Clear</button>
+    </div>
+  </form>
+</div>

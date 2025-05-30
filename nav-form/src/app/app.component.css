@@ -1,0 +1,44 @@
+.genz-navbar {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  display: flex;
+  gap: 30px;
+  padding: 12px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  font-family: 'Poppins', sans-serif;
+  z-index: 10;
+}
+
+.genz-navbar a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.genz-navbar a::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0;
+  bottom: -4px;
+  left: 0;
+  background: white;
+  transition: 0.3s ease;
+}
+
+.genz-navbar a:hover,
+.genz-navbar a.active {
+  color: #ffeaa7;
+}
+
+.genz-navbar a:hover::after,
+.genz-navbar a.active::after {
+  width: 100%;
+}

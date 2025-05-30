@@ -1,0 +1,45 @@
+<!-- <form class="form-container" [formGroup]="formcontainer" (ngSubmit)="onSubmit()">
+  <h2>User Registration</h2>
+
+  <input type="text" placeholder="Enter Name"formControlName ="name">
+  <span *ngIf ="name?.hasError('required')">Required</span>
+  <span class ="error" *ngIf="name?.invalid && (name?.dirty || name?.touhced )"> Please enter Vaild Name </span>
+  <input type="password" placeholder="Enter Password"formControlName ="email">
+  <span *ngIf ="name?.hasError('required')">Required</span>
+  <span class ="error" *ngIf="name?.invalid && (name?.dirty || name?.touhced )"> Please enter Vaild Name </span>
+  <input type="email" placeholder="Enter Email"formControlName ="password">
+  <span *ngIf ="name?.hasError('required')">Required</span>
+  <span class ="error" *ngIf="name?.invalid && (name?.dirty || name?.touhced )"> Please enter Vaild Name </span>
+  <input type="number" placeholder="Enter Age"formControlName ="age">
+  <span *ngIf ="name?.hasError('required')">Required</span>
+  <span class ="error" *ngIf="name?.invalid && (name?.dirty || name?.touhced )"> Please enter Vaild Name </span>
+
+  <button type="submit">Submit</button>
+</form> -->
+
+
+<form class="form-container" [formGroup]="formcontainer" (ngSubmit)="onSubmit()">
+  <h2>User Registration</h2>
+
+  <!-- Name Field -->
+  <input type="text" placeholder="Enter Name" formControlName="name" />
+  <span *ngIf="name?.hasError('required') && name?.touched">Name is required.</span>
+  <span class="error" *ngIf="name?.invalid && (name?.dirty || name?.touched)">Please enter a valid name.</span>
+
+  <!-- Password Field -->
+  <input type="password" placeholder="Enter Password" formControlName="password" />
+  <span *ngIf="password?.hasError('required') && password?.touched">Password is required.</span>
+  <span *ngIf="password?.hasError('minlength') && password?.touched">Password must be at least 5 characters.</span>
+
+  <!-- Email Field -->
+  <input type="email" placeholder="Enter Email" formControlName="email" />
+  <span *ngIf="email?.hasError('required') && email?.touched">Email is required.</span>
+  <span *ngIf="email?.hasError('minlength') && email?.touched">Email must be at least 5 characters.</span>
+
+  <!-- Age Field -->
+  <input type="number" placeholder="Enter Age" formControlName="age" />
+  <span *ngIf="formcontainer.get('age')?.hasError('required') && formcontainer.get('age')?.touched">Age is required.</span>
+  <span *ngIf="formcontainer.get('age')?.hasError('min') && formcontainer.get('age')?.touched">Minimum age is 18.</span>
+
+  <button type="submit" [disabled]="formcontainer.invalid">Submit</button>
+</form>

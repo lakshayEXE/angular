@@ -1,0 +1,17 @@
+<div class="task-list-container">
+  <h2>Your Tasks</h2>
+  
+  <div *ngIf="tasks.length === 0">
+    No tasks yet. Add your first task!
+  </div>
+  
+  <div *ngFor="let task of tasks" class="task-card">
+    <h3>{{task.task}}</h3>
+    <p><strong>Name:</strong> {{task.name}}</p>
+    <p><strong>Priority:</strong> {{task.priority}}</p>
+    <p *ngIf="task.description"><strong>Description:</strong> {{task.description}}</p>
+    
+    <button (click)="startEdit(task)">Edit</button>
+    <button (click)="deleteTask(task.id)">Delete</button>
+  </div>
+</div>
